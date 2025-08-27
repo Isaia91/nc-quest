@@ -1,1 +1,5 @@
-<p>progress works!</p>
+<h2>Progression</h2>
+<p><strong>Score:</strong> {{ score }}</p>
+<ul>
+  <li *ngFor="let f of found">{{ f.cp }} — {{ f.ts | date:'short' }}</li>
+</ul>

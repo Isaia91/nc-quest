@@ -1,17 +1,19 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection, isDevMode } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, Routes, withInMemoryScrolling } from '@angular/router';
+import {HomeComponent} from './features/home/home';
 
-import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideServiceWorker } from '@angular/service-worker';
+
+export const routes: Routes = [
+  { path: '', loadComponent: () => import('./features/home/home').then(m => m.HomeComponent) },
+  { path: 'scan', loadComponent: () => import('./features/scan/scan').then(m => m.ScanComponent) },
+  { path: 'challenge/:cp', loadComponent: () => import('./features/challenge/challenge').then(m => m.ChallengeComponent) },
+  { path: 'progress', loadComponent: () => import('./features/progress/progress').then(m => m.ProgressComponent) },
+  { path: '**', redirectTo: '' }
+];
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection(),
-    provideRouter(routes), provideClientHydration(withEventReplay()), provideServiceWorker('ngsw-worker.js', {
-            enabled: !isDevMode(),
-            registrationStrategy: 'registerWhenStable:30000'
-          })
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })),
   ]
 };

@@ -1,1 +1,9 @@
-<p>challenge works!</p>
+<h2>Défi: {{ cp }}</h2>
+<div *ngIf="type === 'quiz'">
+  <p><strong>Question:</strong> {{ question }}</p>
+</div>
+<div *ngIf="type === 'code'">
+  <p><strong>Indice:</strong> {{ hint }}</p>
+</div>
+<input [ngModel]="input()" (ngModelChange)="input.set($event)" placeholder="Votre réponse" />
+<button (click)="validate()">Valider</button>
