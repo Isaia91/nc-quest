@@ -1,6 +1,6 @@
 const QRCode = require('qrcode');
 const fs = require('fs');
-const etudiants = require('../public/quest.json'); // adapte le chemin si besoin
+const etudiants = require('../src/app/assets/quest.json');
 
 // 1) On prend d'abord la variable d'environnement
 // 2) Sinon, si l'argument ressemble à une URL, on l'utilise
