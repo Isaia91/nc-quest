@@ -76,7 +76,9 @@ export async function netlifyCommonEngineHandler(request: Request, context: any)
 
 export const reqHandler = netlifyCommonEngineHandler
 
-// src/server.ts
 export const serverRoutes = [
-  { path: 'etudiant/:id', renderMode: 'server' } // => pour ne pas de prerender pour cette route
+  { path: 'etudiant/:id', renderMode: 'server' } // évite le prerender sur :id
 ];
+
+const engine = new CommonEngine();
+export default render(engine);
