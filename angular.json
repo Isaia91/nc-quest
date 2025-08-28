@@ -16,6 +16,10 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "polyfills": ["zone.js"],
+            "prerender": {
+              "routesFile": "server.routes.ts"
+            },
+
             "assets": [
               {
                 "glob": "**/*",

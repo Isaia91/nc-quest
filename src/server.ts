@@ -75,3 +75,8 @@ export async function netlifyCommonEngineHandler(request: Request, context: any)
 }
 
 export const reqHandler = netlifyCommonEngineHandler
+
+// src/server.ts
+export const serverRoutes = [
+  { path: 'etudiant/:id', renderMode: 'server' } // => pour ne pas de prerender pour cette route
+];

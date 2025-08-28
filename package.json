@@ -7,7 +7,9 @@
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:nc-quest": "node dist/nc-quest/server/server.mjs"
+    "serve:ssr:nc-quest": "node dist/nc-quest/server/server.mjs",
+    "generate-qr:local": "BASE_URL=http://localhost:4200 node scripts/generate-qr.js",
+    "generate-qr:prod": "BASE_URL=https://ncquest.netlify.app node scripts/generate-qr.js"
   },
   "prettier": {
     "overrides": [
@@ -33,6 +35,7 @@
     "@zxing/browser": "^0.1.5",
     "express": "^5.1.0",
     "idb": "^8.0.3",
+    "qrcode": "^1.5.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.15.1"

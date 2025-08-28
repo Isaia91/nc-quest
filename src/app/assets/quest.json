@@ -1,20 +1,18 @@
-{
-  "gameId": "nc-explore-001",
-  "checkpoints": [
-    {
-      "id": "cp1",
-      "title": "Le Grand Banian",
-      "points": 100,
-      "requires": [],
-      "challenge": { "type": "quiz", "question": "Oiseau emblème ?", "answers": ["cagou"], "caseInsensitive": true }
-    },
-    {
-      "id": "cp2",
-      "title": "Maison Célières",
-      "points": 150,
-      "requires": ["cp1"],
-      "challenge": { "type": "code", "hint": "Date au fronton", "pattern": "19\\d{2}" }
-    }
-  ],
-  "final": { "id": "finale", "requires": ["cp1", "cp2"] }
-}
+[
+  {
+    "id": "etudiant1",
+    "nom": "Marie Dupont",
+    "promo": "2015",
+    "parcours": "Développeuse web",
+    "anecdote": "Elle a participé au 1er hackathon de l’IUT",
+    "photo": "/assets/photos/marie.jpg"
+  },
+  {
+    "id": "etudiant2",
+    "nom": "Lucas Martin",
+    "promo": "2018",
+    "parcours": "Data Scientist",
+    "anecdote": "Il a travaillé sur un projet d'IA au Japon",
+    "photo": "/assets/photos/lucas.jpg"
+  }
+]
