@@ -3,9 +3,13 @@ import {
   createNodeRequestHandler,
   isMainModule,
   writeResponseToNodeResponse,
+  CommonEngine,
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
+import { render } from '@netlify/angular-runtime/common-engine.mjs'
+
+const commonEngine = new CommonEngine()
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
@@ -65,4 +69,9 @@ if (isMainModule(import.meta.url)) {
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
-export const reqHandler = createNodeRequestHandler(app);
+
+export async function netlifyCommonEngineHandler(request: Request, context: any): Promise<Response> {
+  return await render(commonEngine)
+}
+
+export const reqHandler = netlifyCommonEngineHandler
